@@ -1,7 +1,7 @@
-package org.serf.magazineshop;
+package org.serf.magazineshop.servlets;
 
-import org.serf.magazineshop.model.User;
-import org.serf.magazineshop.service.UserService;
+import org.serf.magazineshop.domain.User;
+import org.serf.magazineshop.service.impl.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
