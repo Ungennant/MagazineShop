@@ -1,0 +1,39 @@
+2023-02-23 09:05:55 ERROR UserServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:11:26 ERROR UserServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:16:08 ERROR UserServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:19:10 ERROR UserServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:28:46 ERROR UserServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:34:38 ERROR UserServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:39:05 ERROR UserServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:42:06 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:46:24 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:48:16 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:49:30 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:49:44 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:49:47 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:50:02 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:52:15 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 09:58:59 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 10:03:20 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 10:10:26 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 10:16:06 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 10:16:24 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 10:17:06 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 11:35:48 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 11:49:25 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 11:50:02 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 11:55:46 ERROR ProductServiceImpl:22 - java.lang.ClassNotFoundException: driver
+2023-02-23 11:55:48 ERROR ProductDaoImpl:42 - org.postgresql.util.PSQLException: ОШИБКА: ошибка синтаксиса (примерное положение: "'name'")
+  Позиция: 22
+2023-02-23 11:57:36 ERROR ProductDaoImpl:42 - org.postgresql.util.PSQLException: ОШИБКА: ошибка синтаксиса (примерное положение: "'name'")
+  Позиция: 22
+2023-02-23 12:05:29 ERROR ProductDaoImpl:42 - org.postgresql.util.PSQLException: ОШИБКА: ошибка синтаксиса (примерное положение: "'name'")
+  Позиция: 22
+2023-02-23 12:05:31 ERROR ProductDaoImpl:42 - org.postgresql.util.PSQLException: ОШИБКА: ошибка синтаксиса (примерное положение: "'name'")
+  Позиция: 22
+2023-02-23 12:09:09 ERROR ProductDaoImpl:42 - org.postgresql.util.PSQLException: ОШИБКА: ошибка синтаксиса (примерное положение: "'name'")
+  Позиция: 22
+2023-02-23 12:09:12 ERROR ProductDaoImpl:42 - org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+2023-02-23 17:07:16 ERROR UserDaoImpl:43 - org.postgresql.util.PSQLException: ОШИБКА: ошибка синтаксиса (примерное положение: "'email'")
+  Позиция: 19
+2023-02-23 17:08:12 ERROR UserDaoImpl:43 - org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.

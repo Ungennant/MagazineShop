@@ -1,5 +1,6 @@
 package org.serf.magazineshop.service.impl;
 
+import org.apache.log4j.Logger;
 import org.serf.magazineshop.dao.BucketDAO;
 import org.serf.magazineshop.dao.impl.BucketDaoImpl;
 import org.serf.magazineshop.domain.Bucket;
@@ -10,14 +11,22 @@ import java.util.List;
 
 public class BucketServiceImpl implements BucketService {
 
+    private static final Logger LOGGER = Logger.getLogger(BucketServiceImpl.class);
+    private static BucketService bucketServiceImpl;
     private BucketDAO bucketDAO;
 
-    public BucketServiceImpl(BucketDAO bucketDAO) {
+    private BucketServiceImpl() {
         try {
-            this.bucketDAO = new BucketDaoImpl();
+            bucketDAO = new BucketDaoImpl();
         } catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
+    }
+
+    public static BucketService getBucketService() {
+        if (bucketServiceImpl == null)
+            bucketServiceImpl = new BucketServiceImpl();
+        return bucketServiceImpl;
     }
 
     @Override
@@ -27,7 +36,7 @@ public class BucketServiceImpl implements BucketService {
 
     @Override
     public Bucket read(Integer id) {
-       return bucketDAO.read(id);
+        return bucketDAO.read(id);
     }
 
     @Override

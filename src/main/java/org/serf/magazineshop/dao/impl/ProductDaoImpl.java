@@ -1,5 +1,6 @@
 package org.serf.magazineshop.dao.impl;
 
+import org.apache.log4j.Logger;
 import org.serf.magazineshop.dao.ProductDAO;
 import org.serf.magazineshop.domain.Product;
 import org.serf.magazineshop.utils.ConnectionUtils;
@@ -13,15 +14,18 @@ public class ProductDaoImpl implements ProductDAO {
     private Connection connection;
     private PreparedStatement preparedStatement;
 
+
     public ProductDaoImpl() throws SQLException, ClassNotFoundException {
         connection = ConnectionUtils.openConnection();
     }
 
-    private static String READ_ALL = "SELECT * FROM products";
-    private static String CREATE = "INSERT INTO products('name', 'description', 'price') values (?,?,?)";
-    private static String READ_BY_ID = "SELECT * from products WHERE id =?";
-    private static String UPDATE_BY_ID = "UPDATE products SET name=?, description=?, price=? WHERE id =?";
-    private static String DELETE_BY_ID = "DELETE FROM products WHERE id =?";
+    private static final String READ_ALL = "SELECT * FROM products";
+    private static final String CREATE = "INSERT INTO products(name, description, price) values (?,?,?)";
+    private static final String READ_BY_ID = "SELECT * from products WHERE id =?";
+    private static final String UPDATE_BY_ID = "UPDATE products SET name=?, description=?, price=? WHERE id =?";
+    private static final String DELETE_BY_ID = "DELETE FROM products WHERE id =?";
+
+    private static final Logger LOGGER = Logger.getLogger(ProductDaoImpl.class);
 
     @Override
     public Product create(Product product) {
@@ -35,7 +39,7 @@ public class ProductDaoImpl implements ProductDAO {
             ResultSet rs = preparedStatement.getGeneratedKeys();
             product.setId(rs.getInt(1));
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return product;
     }
@@ -57,7 +61,7 @@ public class ProductDaoImpl implements ProductDAO {
             product = new Product(productId, name, description, price);
 
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return product;
     }
@@ -70,7 +74,7 @@ public class ProductDaoImpl implements ProductDAO {
             preparedStatement.setString(2, product.getDescription());
             preparedStatement.setDouble(3, product.getPrice());
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return product;
     }
@@ -82,7 +86,7 @@ public class ProductDaoImpl implements ProductDAO {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
 
         }
     }
@@ -102,7 +106,7 @@ public class ProductDaoImpl implements ProductDAO {
                 productRecords.add(new Product(productId, name, description, price));
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return productRecords;
     }

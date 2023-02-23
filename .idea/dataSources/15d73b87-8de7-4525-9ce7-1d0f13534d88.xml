@@ -785,7 +785,7 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1676970807</StartupTime>
+      <StartupTime>1677131514</StartupTime>
     </root>
     <database id="2" parent="1" name="Cinema">
       <ObjectId>82136</ObjectId>
@@ -810,7 +810,7 @@ false Zulu
     <database id="7" parent="1" name="onlineshop">
       <ObjectId>131375</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2168</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2183</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|131386|131388|1
 sequence|table|131393|131395|1
@@ -906,7 +906,7 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2169</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2184</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="27" parent="7" name="plpgsql">
@@ -1037,7 +1037,7 @@ UC/10
     <table id="44" parent="26" name="users">
       <ObjectId>131395</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>2161</StateNumber>
+      <StateNumber>2170</StateNumber>
     </table>
     <column id="45" parent="42" name="id">
       <Position>1</Position>
@@ -1186,7 +1186,13 @@ UC/10
       <StateNumber>2158</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="64" parent="44" name="users_pkey">
+    <column id="64" parent="44" name="password">
+      <Position>6</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <StateNumber>2170</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="65" parent="44" name="users_pkey">
       <ObjectId>131401</ObjectId>
       <StateNumber>2158</StateNumber>
       <ColNames>id</ColNames>
@@ -1196,7 +1202,7 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="65" parent="44" name="users_pkey">
+    <key id="66" parent="44" name="users_pkey">
       <ObjectId>131402</ObjectId>
       <StateNumber>2158</StateNumber>
       <ColNames>id</ColNames>

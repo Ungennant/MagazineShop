@@ -1,5 +1,6 @@
 package org.serf.magazineshop.service.impl;
 
+import org.apache.log4j.Logger;
 import org.serf.magazineshop.dao.ProductDAO;
 import org.serf.magazineshop.dao.impl.ProductDaoImpl;
 import org.serf.magazineshop.domain.Product;
@@ -10,14 +11,22 @@ import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
 
+    private static final Logger LOGGER = Logger.getLogger(ProductServiceImpl.class);
+    private static ProductService productServiceImpl;
     private ProductDAO productDAO;
 
-    public ProductServiceImpl(ProductDAO productDAO) {
+    private ProductServiceImpl() {
         try {
-            this.productDAO = new ProductDaoImpl();
+            productDAO = new ProductDaoImpl();
         } catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
+    }
+
+    public static ProductService getProductService() {
+        if (productServiceImpl == null)
+            productServiceImpl = new ProductServiceImpl();
+        return productServiceImpl;
     }
 
     @Override

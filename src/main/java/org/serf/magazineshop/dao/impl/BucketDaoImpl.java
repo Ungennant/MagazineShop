@@ -1,5 +1,6 @@
 package org.serf.magazineshop.dao.impl;
 
+import org.apache.log4j.Logger;
 import org.serf.magazineshop.dao.BucketDAO;
 import org.serf.magazineshop.domain.Bucket;
 import org.serf.magazineshop.utils.ConnectionUtils;
@@ -17,10 +18,12 @@ public class BucketDaoImpl implements BucketDAO {
         connection = ConnectionUtils.openConnection();
     }
 
-    private static String READ_ALL = "SELECT * FROM bucket";
-    private static String CREATE = "INSERT INTO bucket('user_id', 'product_id', 'purchase_date') values (?,?,?)";
-    private static String READ_BY_ID = "SELECT * from bucket WHERE id =?";
-    private static String DELETE_BY_ID = "DELETE FROM bucket WHERE id =?";
+    private static final String READ_ALL = "SELECT * FROM bucket";
+    private static final String CREATE = "INSERT INTO bucket(user_id, product_id, purchase_date) values (?,?,?)";
+    private static final String READ_BY_ID = "SELECT * from bucket WHERE id =?";
+    private static final String DELETE_BY_ID = "DELETE FROM bucket WHERE id =?";
+
+    private static final Logger LOGGER = Logger.getLogger(BucketDaoImpl.class);
 
     @Override
     public Bucket create(Bucket bucket) {
@@ -34,7 +37,7 @@ public class BucketDaoImpl implements BucketDAO {
             ResultSet rs = preparedStatement.getGeneratedKeys();
             bucket.setId(rs.getInt(1));
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return bucket;
     }
@@ -56,7 +59,7 @@ public class BucketDaoImpl implements BucketDAO {
             bucket = new Bucket(bucketID, userID, productId, purchaseDate);
 
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return bucket;
     }
@@ -73,8 +76,7 @@ public class BucketDaoImpl implements BucketDAO {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
-
+            LOGGER.error(throwables);
         }
     }
 
@@ -93,7 +95,7 @@ public class BucketDaoImpl implements BucketDAO {
                 bucketRecords.add(new Bucket(bucketId, userId, productId, purchaseDate));
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return bucketRecords;
     }

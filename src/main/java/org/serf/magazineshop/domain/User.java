@@ -5,27 +5,28 @@ import java.util.Objects;
 public class User {
 
     private Integer id;
+    private String email;
     private String firstName;
     private String lastName;
-    private String email;
-    private String password;
     private String role;
+    private String password;
 
-    public User(Integer id, String firstName, String lastName, String email, String password, String role) {
+
+    public User(Integer id, String email, String firstName, String lastName, String role, String password) {
         this.id = id;
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-        this.password = password;
         this.role = role;
+        this.password = password;
     }
 
-    public User(String firstName, String lastName, String email, String password, String role) {
+    public User( String email, String firstName, String lastName, String role, String password) {
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-        this.password = password;
         this.role = role;
+        this.password = password;
     }
 
     public Integer getId() {
@@ -34,6 +35,14 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFirstName() {
@@ -52,12 +61,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getRole() {
+        return role;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getPassword() {
@@ -66,14 +75,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     @Override
@@ -93,11 +94,11 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
-
 }

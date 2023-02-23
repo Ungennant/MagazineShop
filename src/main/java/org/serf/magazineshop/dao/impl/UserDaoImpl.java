@@ -1,5 +1,6 @@
 package org.serf.magazineshop.dao.impl;
 
+import org.apache.log4j.Logger;
 import org.serf.magazineshop.dao.UserDAO;
 import org.serf.magazineshop.domain.User;
 import org.serf.magazineshop.utils.ConnectionUtils;
@@ -17,11 +18,14 @@ public class UserDaoImpl implements UserDAO {
         connection = ConnectionUtils.openConnection();
     }
 
-    private static String READ_ALL = "SELECT * FROM users";
-    private static String CREATE = "INSERT INTO users('email', 'first_name', 'last_name', 'password', 'role') values (?,?,?,?,?)";
-    private static String READ_BY_ID = "SELECT * from users WHERE id =?";
-    private static String UPDATE_BY_ID = "UPDATE users SET email=?, first_name=?, last_name=?, password=?, role=? WHERE id =?";
-    private static String DELETE_BY_ID = "DELETE FROM users WHERE id =?";
+    private static final String READ_ALL = "SELECT * FROM users";
+    private static final String CREATE = "INSERT INTO users(email, first_name, last_name, role, password) values (?,?,?,?,?)";
+    private static final String READ_BY_ID = "SELECT * from users WHERE id =?";
+    private static final String READ_BY_EMAIL = "SELECT * from users WHERE email =?";
+    private static final String UPDATE_BY_ID = "UPDATE users SET email=?, first_name=?, last_name=?, role=?, password=? WHERE id =?";
+    private static final String DELETE_BY_ID = "DELETE FROM users WHERE id =?";
+
+    private static final Logger LOGGER = Logger.getLogger(UserDaoImpl.class);
 
     @Override
     public User create(User user) {
@@ -30,14 +34,14 @@ public class UserDaoImpl implements UserDAO {
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getFirstName());
             preparedStatement.setString(3, user.getLastName());
-            preparedStatement.setString(4, user.getPassword());
-            preparedStatement.setString(5, user.getRole());
+            preparedStatement.setString(4, user.getRole());
+            preparedStatement.setString(5, user.getPassword());
             preparedStatement.executeUpdate();
 
             ResultSet rs = preparedStatement.getGeneratedKeys();
             user.setId(rs.getInt(1));
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return user;
     }
@@ -55,13 +59,13 @@ public class UserDaoImpl implements UserDAO {
             String email = result.getString("email");
             String firstName = result.getString("first_name");
             String lastName = result.getString("last_name");
-            String password = result.getString("password");
             String role = result.getString("role");
+            String password = result.getString("password");
 
-            user = new User(userId, email, firstName, lastName, password, role);
+            user = new User(userId, email, firstName, lastName, role, password);
 
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return user;
     }
@@ -73,10 +77,11 @@ public class UserDaoImpl implements UserDAO {
             preparedStatement.setString(1, user.getEmail());
             preparedStatement.setString(2, user.getFirstName());
             preparedStatement.setString(3, user.getLastName());
-            preparedStatement.setString(4, user.getPassword());
-            preparedStatement.setString(5, user.getRole());
+            preparedStatement.setString(4, user.getRole());
+            preparedStatement.setString(5, user.getPassword());
+            preparedStatement.setInt(6, user.getId());
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return user;
     }
@@ -88,7 +93,7 @@ public class UserDaoImpl implements UserDAO {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
 
         }
     }
@@ -104,16 +109,39 @@ public class UserDaoImpl implements UserDAO {
                 String email = result.getString("email");
                 String firstName = result.getString("first_name");
                 String lastName = result.getString("last_name");
-                String password = result.getString("password");
                 String role = result.getString("role");
+                String password = result.getString("password");
 
 
-                userRecords.add(new User(userId, email, firstName, lastName, password, role));
+                userRecords.add(new User(userId, email, firstName, lastName, role, password));
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            LOGGER.error(throwables);
         }
         return userRecords;
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        User user = null;
+        try {
+            preparedStatement = connection.prepareStatement(READ_BY_EMAIL);
+            preparedStatement.setString(1, email);
+            ResultSet result = preparedStatement.executeQuery();
+
+            result.next();
+            Integer userId = result.getInt("id");
+            String firstName = result.getString("first_name");
+            String lastName = result.getString("last_name");
+            String role = result.getString("role");
+            String password = result.getString("password");
+
+            user = new User(userId, email, firstName, lastName, role, password);
+
+        } catch (SQLException throwables) {
+            LOGGER.error(throwables);
+        }
+        return user;
     }
 }
 
