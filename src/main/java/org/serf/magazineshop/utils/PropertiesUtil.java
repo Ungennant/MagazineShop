@@ -1,5 +1,7 @@
 package org.serf.magazineshop.utils;
 
+import org.apache.log4j.xml.DOMConfigurator;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -10,6 +12,7 @@ public class PropertiesUtil {
 
     static {
         loadProperties();
+        DOMConfigurator.configure("loggerConfig.xml");
     }
 
     public static String get(String key){
