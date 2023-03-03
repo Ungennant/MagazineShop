@@ -63,14 +63,13 @@ $("button.login").click(function() {
 
         $.post("login", userLogin, function(data) {
             if(data !== ''){
-
                 let customUrl = '';
                 let urlContent = window.location.href.split('/');
                 for (let i = 0; i < urlContent.length-1; i++) {
                     customUrl+=urlContent[i]+'/'
                 }
                 customUrl += data.destinationUrl;
-                window.location = "cabinet.jsp";
+                window.location = customUrl;
             }
             $("form")[1].reset();
         });

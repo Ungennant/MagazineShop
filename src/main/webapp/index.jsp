@@ -53,8 +53,8 @@
             <p class="message">Вже зареєстровані? <a href="#">Увійти</a></p>
         </form>
         <form class="login-form">
-            <input id="login" type="text" placeholder="Введіть логін"/>
-            <input type="password" placeholder="Введіть пароль"/>
+            <input class="email" type="text" placeholder="Введіть логін"/>
+            <input class="password" type="password" placeholder="Введіть пароль"/>
             <button class="login">Увійти</button>
             <p class="message">Немає аккаунту? <a href="#">Зареєструватись</a></p>
         </form>
