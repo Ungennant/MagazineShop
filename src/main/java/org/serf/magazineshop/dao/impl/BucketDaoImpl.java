@@ -19,7 +19,7 @@ public class BucketDaoImpl implements BucketDAO {
     }
 
     private static final String READ_ALL = "SELECT * FROM bucket";
-    private static final String CREATE = "INSERT INTO bucket(user_id, product_id, purchase_date) values (?,?,?)";
+    private static final String CREATE = "INSERT INTO bucket(users_id, products_id, purchase_date) values (?,?,?)";
     private static final String READ_BY_ID = "SELECT * from bucket WHERE id =?";
     private static final String DELETE_BY_ID = "DELETE FROM bucket WHERE id =?";
 
@@ -52,8 +52,8 @@ public class BucketDaoImpl implements BucketDAO {
 
             result.next();
             Integer bucketID = result.getInt("id");
-            Integer userID = result.getInt("user_id");
-            Integer productId = result.getInt("product_id");
+            Integer userID = result.getInt("users_id");
+            Integer productId = result.getInt("products_id");
             java.util.Date purchaseDate = result.getDate("purchase_date");
 
             bucket = new Bucket(bucketID, userID, productId, purchaseDate);
@@ -88,8 +88,8 @@ public class BucketDaoImpl implements BucketDAO {
             ResultSet result = preparedStatement.executeQuery();
             while (result.next()) {
                 Integer bucketId = result.getInt("id");
-                Integer userId = result.getInt("user_id");
-                Integer productId = result.getInt("product_id");
+                Integer userId = result.getInt("users_id");
+                Integer productId = result.getInt("products_id");
                 java.util.Date purchaseDate = result.getDate("purchase_date");
 
                 bucketRecords.add(new Bucket(bucketId, userId, productId, purchaseDate));

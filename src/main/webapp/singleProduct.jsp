@@ -1,13 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
   User: Akira
-  Date: 05.03.2023
-  Time: 19:01
+  Date: 06.03.2023
+  Time: 11:44
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+         pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,32 +26,51 @@
           crossorigin="anonymous">
 </head>
 <body>
-<h1>Welcome to the cabinet ${userEmail}</h1>
+
 <jsp:include page="header.jsp"></jsp:include>
-<h1>Add Product form</h1>
-<div class="container-fluid">
-    <div class="row">
-        <form class="createProduct">
-            <div class="form-group">
-                <input type="text" class="form-control productName"
-                       placeholder="Enter title">
+
+
+<div class="container-fluid single-product">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">${product.name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${product.price}</h6>
+                <p class="card-text">${product.description}</p>
+
+
+                <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#buyProductModal">buy product
+                </button>
             </div>
-
-            <div class="form-group">
-                <input type="text" class="form-control productDescription"
-                       placeholder="Add description">
-            </div>
-
-            <div class="form-group">
-                <input type="number" class="form-control productPrice"
-                       placeholder="Enter price">
-            </div>
-
-            <button class="btn btn-primary createProduct">Submit</button>
-        </form>
-
+        </div>
     </div>
+</div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="buyProductModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are You sure that You want to buy this product?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Cancel
+                </button>
+                <button type="button" product-id="${product.id}" class="btn btn-primary buy-product">Buy</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <jsp:include page="footer.jsp"></jsp:include>

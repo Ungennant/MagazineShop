@@ -19,3 +19,17 @@ $("button.createProduct")
                     }
                 });
         });
+//buy button functionality
+$("button.buy-product").click(function() {
+    let productId = jQuery(this).attr("product-id");
+
+
+    $.post("bucket", {'productId':productId},
+        function(data) {
+            if (data == 'Success') {
+                $("[data-dismiss=modal]").trigger({ type: "click" });
+                alert('Success');
+            }
+        });
+});
+

@@ -26,13 +26,13 @@
           crossorigin="anonymous">
 </head>
 <body>
-<h1>It is your bucket.</h1>
+
 <jsp:include page="header.jsp"></jsp:include>
 
 <div class="container-fluid">
     <div class="row">
 
-        <h1>Кошик користувача</h1>
+        <h1>User Bucket</h1>
 
     </div>
 

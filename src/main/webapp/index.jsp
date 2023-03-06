@@ -44,19 +44,19 @@
 <div class="login-page">
     <div class="form">
         <form class="register-form">
-            <input class="email" type="text" placeholder="Введіть пошту"/>
-            <input class="firstName" type="text" placeholder="Введіть ім'я"/>
-            <input class="lastName" type="text" placeholder="Введіть прізвище"/>
-            <input class="password" type="password" placeholder="Введіть пароль"/>
-            <input class="cpassword" type="password" placeholder="Повторіть пароль"/>
-            <button class="register">Зареєструватись</button>
-            <p class="message">Вже зареєстровані? <a href="#">Увійти</a></p>
+            <input class="email" type="text" placeholder="Enter email"/>
+            <input class="firstName" type="text" placeholder="Enter name"/>
+            <input class="lastName" type="text" placeholder="Enter surname"/>
+            <input class="password" type="password" placeholder="Enter password"/>
+            <input class="cpassword" type="password" placeholder="Repeat password"/>
+            <button class="register">Register</button>
+            <p class="message">Already registered? <a href="#">Login</a></p>
         </form>
         <form class="login-form">
-            <input class="email" type="text" placeholder="Введіть логін"/>
-            <input class="password" type="password" placeholder="Введіть пароль"/>
-            <button class="login">Увійти</button>
-            <p class="message">Немає аккаунту? <a href="#">Зареєструватись</a></p>
+            <input class="email" type="text" placeholder="Enter email"/>
+            <input class="password" type="password" placeholder="Enter password"/>
+            <button class="login">Login</button>
+            <p class="message">Don't have an account?? <a href="#">Register</a></p>
         </form>
     </div>
     <div class="alert alert-success  alert-dismissible fade show" role="alert">

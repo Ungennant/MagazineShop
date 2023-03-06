@@ -28,27 +28,26 @@
 <body>
 <h1>Welcome to the cabinet ${userEmail}</h1>
 <jsp:include page="header.jsp"></jsp:include>
-
+<h1>Add Product form</h1>
 <div class="container-fluid">
     <div class="row">
-
         <form class="createProduct">
             <div class="form-group">
                 <input type="text" class="form-control productName"
-                       placeholder="Введіть назву журналу">
+                       placeholder="Enter title">
             </div>
 
             <div class="form-group">
                 <input type="text" class="form-control productDescription"
-                       placeholder="Додайте опис журналу">
+                       placeholder="Add description">
             </div>
 
             <div class="form-group">
                 <input type="number" class="form-control productPrice"
-                       placeholder="Введіть ціну">
+                       placeholder="Enter price">
             </div>
 
-            <button class="btn btn-primary createProduct">Додати</button>
+            <button class="btn btn-primary createProduct">Submit</button>
         </form>
 
     </div>
