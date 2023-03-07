@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "Products", value = "/Products")
-public class Products extends HttpServlet {
+public class ProductsController extends HttpServlet {
 
     private ProductService productService = ProductServiceImpl.getProductService();
 

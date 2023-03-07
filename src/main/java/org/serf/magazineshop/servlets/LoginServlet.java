@@ -30,6 +30,7 @@ public class LoginServlet extends HttpServlet {
 
             HttpSession session = request.getSession(true);
             session.setAttribute("userId", user.getId());
+            session.setAttribute("role", user.getRole().toString());
 
             UserLogin userLogin = new UserLogin();
             userLogin.destinationUrl = "cabinet.jsp";

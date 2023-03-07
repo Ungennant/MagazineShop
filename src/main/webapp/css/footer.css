@@ -8,9 +8,9 @@ footer {
     background-color: #263238;
     min-height: 250px;
     padding: 10px 0px 25px 0px;
-    right: 0;
     bottom: 0;
     left: 0;
+    position: fixed;
     padding: 1rem;
     text-align: center;
     margin-top: 10px;

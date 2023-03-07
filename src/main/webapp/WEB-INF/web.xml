@@ -39,7 +39,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>products</servlet-name>
-    <servlet-class>org.serf.magazineshop.servlets.Products</servlet-class>
+    <servlet-class>org.serf.magazineshop.servlets.ProductsController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>products</servlet-name>
@@ -52,5 +52,13 @@
   <servlet-mapping>
     <servlet-name>bucket</servlet-name>
     <url-pattern>/bucket</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>buckets</servlet-name>
+    <servlet-class>org.serf.magazineshop.servlets.BucketsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>buckets</servlet-name>
+    <url-pattern>/buckets</url-pattern>
   </servlet-mapping>
 </web-app>
