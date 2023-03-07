@@ -1,5 +1,0 @@
-2023-03-06 23:10:48 ERROR BucketDaoImpl:40 - org.postgresql.util.PSQLException: ОШИБКА: столбец "user_id" в таблице "bucket" не существует
-  Позиция: 20
-2023-03-06 23:12:08 ERROR BucketDaoImpl:40 - org.postgresql.util.PSQLException: ОШИБКА: столбец "user_id" в таблице "bucket" не существует
-  Позиция: 20
-2023-03-06 23:14:01 ERROR BucketDaoImpl:40 - org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
